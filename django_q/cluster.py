@@ -503,7 +503,7 @@ def save_task(task, broker: Broker):
             elif inspect.ismethod(func):
                 func = (
                     f"{func.__self__.__module__}."
-                    f"{func.__self__.__name__}.{func.__name__}"
+                    f"{func.__self__.__class__.__name__}.{func.__name__}"
                 )
             Task.objects.create(
                 id=task["id"],
